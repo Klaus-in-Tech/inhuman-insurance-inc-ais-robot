@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20231205 18:44:40.280" rpa="true" schemaversion="4">
+<suite id="s1" name="Producer" source="d:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\robots\producer.robot">
+<test id="s1-t1" name="Produce traffic data work items" line="9">
+<kw name="Download traffic data">
+<kw name="Download" library="RPA.HTTP">
+<arg>https://github.com/robocorp/inhuman-insurance-inc/raw/main/RS_198.json</arg>
+<arg>${OUTPUT_DIR}${/}traffic.json</arg>
+<arg>overwrite=True</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<msg timestamp="20231205 18:44:42.687" level="INFO">Creating a new HTTP session</msg>
+<msg timestamp="20231205 18:44:42.694" level="INFO">Creating Session using : alias=rpasession_alias.httpsgithub.com, url=https://github.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20231205 18:44:42.685" endtime="20231205 18:44:48.015"/>
+</kw>
+<status status="PASS" starttime="20231205 18:44:42.684" endtime="20231205 18:44:48.015"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Producer Done.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231205 18:44:48.015" level="INFO">Producer Done.</msg>
+<status status="PASS" starttime="20231205 18:44:48.015" endtime="20231205 18:44:48.015"/>
+</kw>
+<status status="PASS" starttime="20231205 18:44:42.681" endtime="20231205 18:44:48.015"/>
+</test>
+<doc>Inhuman Insurance, Inc. Artificial Intelligence System robot.
+Produces traffic data work items.</doc>
+<status status="PASS" starttime="20231205 18:44:40.319" endtime="20231205 18:44:48.032"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Producer">Producer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

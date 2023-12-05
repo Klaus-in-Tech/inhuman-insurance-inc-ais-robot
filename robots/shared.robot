@@ -5,4 +5,4 @@ Documentation       Inhuman Insurance, Inc. Artificial Intelligence System robot
 
 *** Tasks ***
 Minimal task
-    Log    Done.
+    Log To Console  Am shared Done.

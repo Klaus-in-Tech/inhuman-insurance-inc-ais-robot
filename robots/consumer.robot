@@ -5,4 +5,4 @@ Documentation       Inhuman Insurance, Inc. Artificial Intelligence System robot
 
 *** Tasks ***
 Consume traffic data work items
-    Log    Done.
+    Log   Consumer done.
