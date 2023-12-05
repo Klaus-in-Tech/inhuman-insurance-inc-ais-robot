@@ -1,51 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20231205 19:13:59.335" rpa="true" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20231205 19:37:14.862" rpa="true" schemaversion="4">
 <suite id="s1" name="Producer" source="d:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\robots\producer.robot">
-<test id="s1-t1" name="Produce traffic data work items" line="11">
+<test id="s1-t1" name="Produce traffic data work items" line="14">
 <kw name="Load traffic data as table">
+<var>${table}</var>
 <kw name="Load JSON from file" library="RPA.JSON">
 <var>${json}</var>
-<arg>${OUTPUT_DIR}${/}traffic.json</arg>
+<arg>${TRAFFIC_JSON_FILE_PATH}</arg>
 <doc>Load JSON data from a file, and return it as JSON serializable object.
 Depending on the input file the object can be either a dictionary,
 a list, or a scalar value.</doc>
-<msg timestamp="20231205 19:14:02.044" level="INFO">Loading JSON from file: D:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\traffic.json</msg>
-<msg timestamp="20231205 19:14:02.625" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
-<status status="PASS" starttime="20231205 19:14:02.038" endtime="20231205 19:14:02.626"/>
+<msg timestamp="20231205 19:37:22.733" level="INFO">Loading JSON from file: D:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\traffic.json</msg>
+<msg timestamp="20231205 19:37:23.396" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20231205 19:37:21.533" endtime="20231205 19:37:23.397"/>
 </kw>
 <kw name="Create Table" library="RPA.Tables">
 <var>${table}</var>
 <arg>${json}[value]</arg>
 <doc>Create Table object from data.</doc>
-<msg timestamp="20231205 19:14:03.592" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
-<msg timestamp="20231205 19:14:03.607" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20231205 19:14:02.627" endtime="20231205 19:14:03.607"/>
+<msg timestamp="20231205 19:37:28.293" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
+<msg timestamp="20231205 19:37:28.311" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20231205 19:37:23.400" endtime="20231205 19:37:28.314"/>
 </kw>
 <kw name="Write table to CSV" library="RPA.Tables">
-<var>${table}</var>
 <arg>${table}</arg>
 <arg>${OUTPUT_DIR}${/}traffic.csv</arg>
 <doc>Write a table as a CSV file.</doc>
-<msg timestamp="20231205 19:14:05.764" level="INFO">${table} = None</msg>
-<status status="PASS" starttime="20231205 19:14:03.607" endtime="20231205 19:14:05.765"/>
+<status status="PASS" starttime="20231205 19:37:28.317" endtime="20231205 19:37:44.812"/>
 </kw>
 <return>
 <value>${table}</value>
-<status status="PASS" starttime="20231205 19:14:05.766" endtime="20231205 19:14:05.766"/>
+<status status="PASS" starttime="20231205 19:37:44.812" endtime="20231205 19:37:50.001"/>
 </return>
-<status status="PASS" starttime="20231205 19:14:02.037" endtime="20231205 19:14:05.768"/>
+<msg timestamp="20231205 19:37:50.005" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20231205 19:37:18.659" endtime="20231205 19:37:50.006"/>
+</kw>
+<kw name="Filter and sort traffic data">
+<arg>${table}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max_rate}</var>
+<arg>${5.0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231205 19:37:57.648" level="INFO">${max_rate} = 5.0</msg>
+<status status="PASS" starttime="20231205 19:37:55.580" endtime="20231205 19:37:57.649"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${rate_key}</var>
+<arg>NumericValue</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231205 19:37:59.908" level="INFO">${rate_key} = NumericValue</msg>
+<status status="PASS" starttime="20231205 19:37:57.650" endtime="20231205 19:37:59.908"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${gender_key}</var>
+<arg>Dim1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231205 19:38:01.264" level="INFO">${gender_key} = Dim1</msg>
+<status status="PASS" starttime="20231205 19:37:59.913" endtime="20231205 19:38:01.264"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${both_genders}</var>
+<arg>BTSX</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231205 19:38:05.176" level="INFO">${both_genders} = BTSX</msg>
+<status status="PASS" starttime="20231205 19:38:01.264" endtime="20231205 19:38:05.176"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${year_key}</var>
+<arg>TimeDim</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231205 19:38:06.730" level="INFO">${year_key} = TimeDim</msg>
+<status status="PASS" starttime="20231205 19:38:05.180" endtime="20231205 19:38:06.730"/>
+</kw>
+<kw name="Filter Table By Column" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${rate_key}</arg>
+<arg>&lt;</arg>
+<arg>${max_rate}</arg>
+<doc>Remove all rows where column values don't match the
+given condition.</doc>
+<msg timestamp="20231205 19:38:08.885" level="INFO">Filtered -10339 rows</msg>
+<status status="PASS" starttime="20231205 19:38:06.730" endtime="20231205 19:38:08.885"/>
+</kw>
+<kw name="Filter Table By Column" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${gender_key}</arg>
+<arg>==</arg>
+<arg>${both_genders}</arg>
+<doc>Remove all rows where column values don't match the
+given condition.</doc>
+<msg timestamp="20231205 19:38:21.561" level="INFO">Filtered -1056 rows</msg>
+<status status="PASS" starttime="20231205 19:38:08.885" endtime="20231205 19:38:21.563"/>
+</kw>
+<kw name="Sort Table By Column" library="RPA.Tables">
+<arg>${table}</arg>
+<arg>${year_key}</arg>
+<arg>False</arg>
+<doc>Sort a table in-place according to ``column``.</doc>
+<status status="PASS" starttime="20231205 19:38:21.566" endtime="20231205 19:38:22.620"/>
+</kw>
+<return>
+<value>${table}</value>
+<status status="PASS" starttime="20231205 19:38:22.622" endtime="20231205 19:38:24.057"/>
+</return>
+<status status="PASS" starttime="20231205 19:37:50.009" endtime="20231205 19:38:24.061"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>Producer Done.</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231205 19:14:05.771" level="INFO">Producer Done.</msg>
-<status status="PASS" starttime="20231205 19:14:05.769" endtime="20231205 19:14:05.771"/>
+<msg timestamp="20231205 19:38:27.064" level="INFO">Producer Done.</msg>
+<status status="PASS" starttime="20231205 19:38:24.064" endtime="20231205 19:38:27.065"/>
 </kw>
-<status status="PASS" starttime="20231205 19:14:02.034" endtime="20231205 19:14:05.774"/>
+<status status="PASS" starttime="20231205 19:37:18.640" endtime="20231205 19:38:27.065"/>
 </test>
 <doc>Inhuman Insurance, Inc. Artificial Intelligence System robot.
 Produces traffic data work items.</doc>
-<status status="PASS" starttime="20231205 19:13:59.361" endtime="20231205 19:14:05.787"/>
+<status status="PASS" starttime="20231205 19:37:14.904" endtime="20231205 19:38:27.084"/>
 </suite>
 <statistics>
 <total>

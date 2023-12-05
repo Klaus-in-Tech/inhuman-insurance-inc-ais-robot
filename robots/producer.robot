@@ -12,7 +12,8 @@ ${TRAFFIC_JSON_FILE_PATH}=      ${OUTPUT_DIR}${/}traffic.json
 
 *** Tasks ***
 Produce traffic data work items
-    Load traffic data as table
+    ${table}=    Load traffic data as table
+    Filter and sort traffic data    ${table}
     Log    Producer Done.
 
 *** Keywords ***
@@ -25,5 +26,17 @@ Download traffic data
 Load traffic data as table
     ${json}=    Load JSON from file    ${TRAFFIC_JSON_FILE_PATH}
     ${table}=    Create Table    ${json}[value]
-    ${table}    Write table to CSV    ${table}    ${OUTPUT_DIR}${/}traffic.csv
+    Write table to CSV    ${table}    ${OUTPUT_DIR}${/}traffic.csv
+    RETURN    ${table}
+
+Filter and sort traffic data
+    [Arguments]    ${table}
+    ${max_rate}=    Set Variable    ${5.0}
+    ${rate_key}=    Set Variable    NumericValue
+    ${gender_key}=    Set Variable    Dim1
+    ${both_genders}=    Set Variable    BTSX
+    ${year_key}=    Set Variable    TimeDim
+    Filter Table By Column    ${table}    ${rate_key}    <    ${max_rate}
+    Filter Table By Column    ${table}    ${gender_key}    ==    ${both_genders}
+    Sort Table By Column    ${table}    ${year_key}    False
     RETURN    ${table}
