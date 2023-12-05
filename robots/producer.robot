@@ -3,17 +3,25 @@ Documentation       Inhuman Insurance, Inc. Artificial Intelligence System robot
 ...                 Produces traffic data work items.
 
 Library             RPA.HTTP
+Library             Collections
 Library             RPA.Tables
 Library             RPA.JSON
 
 *** Variables ***
 ${TRAFFIC_JSON_FILE_PATH}=      ${OUTPUT_DIR}${/}traffic.json
+# JSON data keys:
+${COUNTRY_KEY}=                 SpatialDim
+${GENDER_KEY}=                  Dim1
+${RATE_KEY}=                    NumericValue
+${YEAR_KEY}=                    TimeDim
 
 
 *** Tasks ***
 Produce traffic data work items
     ${table}=    Load traffic data as table
-    Filter and sort traffic data    ${table}
+    ${table}=    Filter and sort traffic data    ${table}
+    ${traffic_data}=    Get latest data by country    ${table}
+    ${payloads}=    Create work item payloads    ${traffic_data}
     Log    Producer Done.
 
 *** Keywords ***
@@ -32,11 +40,31 @@ Load traffic data as table
 Filter and sort traffic data
     [Arguments]    ${table}
     ${max_rate}=    Set Variable    ${5.0}
-    ${rate_key}=    Set Variable    NumericValue
-    ${gender_key}=    Set Variable    Dim1
     ${both_genders}=    Set Variable    BTSX
-    ${year_key}=    Set Variable    TimeDim
-    Filter Table By Column    ${table}    ${rate_key}    <    ${max_rate}
-    Filter Table By Column    ${table}    ${gender_key}    ==    ${both_genders}
-    Sort Table By Column    ${table}    ${year_key}    False
+    Filter Table By Column    ${table}    ${RATE_KEY}    <    ${max_rate}
+    Filter Table By Column    ${table}    ${GENDER_KEY}    ==    ${both_genders}
+    Sort Table By Column    ${table}    ${YEAR_KEY}    False
     RETURN    ${table}
+
+Get latest data by country
+    [Arguments]    ${table}
+    ${table}=    Group Table By Column    ${table}    ${COUNTRY_KEY}
+    ${latest_data_by_country}=    Create List
+    FOR    ${row}    IN    @{table}
+        ${first_row}=    Pop Table Row    ${row}
+        Append To List    ${latest_data_by_country}    ${first_row}
+    END
+    RETURN    ${latest_data_by_country}
+
+Create work item payloads
+    [Arguments]    ${traffic_data}
+    ${payloads}=    Create List
+    FOR    ${row}    IN    @{traffic_data}
+        ${payload}=
+        ...    Create Dictionary
+        ...    country=${row}[${COUNTRY_KEY}]
+        ...    year=${row}[${YEAR_KEY}]
+        ...    rate=${row}[${RATE_KEY}]
+        Append To List    ${payloads}    ${payload}
+    END
+    RETURN    ${payloads}

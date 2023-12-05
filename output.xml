@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20231205 19:37:14.862" rpa="true" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20231205 21:20:48.730" rpa="true" schemaversion="4">
 <suite id="s1" name="Producer" source="d:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\robots\producer.robot">
-<test id="s1-t1" name="Produce traffic data work items" line="14">
+<test id="s1-t1" name="Produce traffic data work items" line="20">
 <kw name="Load traffic data as table">
 <var>${table}</var>
 <kw name="Load JSON from file" library="RPA.JSON">
@@ -10,123 +10,1057 @@
 <doc>Load JSON data from a file, and return it as JSON serializable object.
 Depending on the input file the object can be either a dictionary,
 a list, or a scalar value.</doc>
-<msg timestamp="20231205 19:37:22.733" level="INFO">Loading JSON from file: D:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\traffic.json</msg>
-<msg timestamp="20231205 19:37:23.396" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
-<status status="PASS" starttime="20231205 19:37:21.533" endtime="20231205 19:37:23.397"/>
+<msg timestamp="20231205 21:21:10.466" level="INFO">Loading JSON from file: D:\_PROJECTS\Robocorp projects\inhuman-insurance-inc-ais-robot\traffic.json</msg>
+<msg timestamp="20231205 21:21:11.220" level="INFO">${json} = {'@odata.context': 'https://ghoapi.azureedge.net/api/$metadata#RS_198', 'value': [{'Id': 25257658, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AFG', 'TimeDimType': 'YEAR', '...</msg>
+<status status="PASS" starttime="20231205 21:20:58.976" endtime="20231205 21:21:11.220"/>
 </kw>
 <kw name="Create Table" library="RPA.Tables">
 <var>${table}</var>
 <arg>${json}[value]</arg>
 <doc>Create Table object from data.</doc>
-<msg timestamp="20231205 19:37:28.293" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
-<msg timestamp="20231205 19:37:28.311" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20231205 19:37:23.400" endtime="20231205 19:37:28.314"/>
+<msg timestamp="20231205 21:21:15.236" level="INFO">Created table: Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value', 'NumericValue', 'Low', 'High', 'Comments', 'Date', 'TimeDimensionValue', 'TimeDimensionBegin', 'TimeDimensionEnd'], rows=11640)</msg>
+<msg timestamp="20231205 21:21:15.252" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20231205 21:21:11.220" endtime="20231205 21:21:15.252"/>
 </kw>
 <kw name="Write table to CSV" library="RPA.Tables">
 <arg>${table}</arg>
 <arg>${OUTPUT_DIR}${/}traffic.csv</arg>
 <doc>Write a table as a CSV file.</doc>
-<status status="PASS" starttime="20231205 19:37:28.317" endtime="20231205 19:37:44.812"/>
+<status status="PASS" starttime="20231205 21:21:15.252" endtime="20231205 21:21:29.824"/>
 </kw>
 <return>
 <value>${table}</value>
-<status status="PASS" starttime="20231205 19:37:44.812" endtime="20231205 19:37:50.001"/>
+<status status="PASS" starttime="20231205 21:21:29.824" endtime="20231205 21:21:29.824"/>
 </return>
-<msg timestamp="20231205 19:37:50.005" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
-<status status="PASS" starttime="20231205 19:37:18.659" endtime="20231205 19:37:50.006"/>
+<msg timestamp="20231205 21:21:29.840" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20231205 21:20:52.495" endtime="20231205 21:21:29.840"/>
 </kw>
 <kw name="Filter and sort traffic data">
+<var>${table}</var>
 <arg>${table}</arg>
 <kw name="Set Variable" library="BuiltIn">
 <var>${max_rate}</var>
 <arg>${5.0}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231205 19:37:57.648" level="INFO">${max_rate} = 5.0</msg>
-<status status="PASS" starttime="20231205 19:37:55.580" endtime="20231205 19:37:57.649"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${rate_key}</var>
-<arg>NumericValue</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231205 19:37:59.908" level="INFO">${rate_key} = NumericValue</msg>
-<status status="PASS" starttime="20231205 19:37:57.650" endtime="20231205 19:37:59.908"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${gender_key}</var>
-<arg>Dim1</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231205 19:38:01.264" level="INFO">${gender_key} = Dim1</msg>
-<status status="PASS" starttime="20231205 19:37:59.913" endtime="20231205 19:38:01.264"/>
+<msg timestamp="20231205 21:21:36.621" level="INFO">${max_rate} = 5.0</msg>
+<status status="PASS" starttime="20231205 21:21:36.606" endtime="20231205 21:21:36.624"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${both_genders}</var>
 <arg>BTSX</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231205 19:38:05.176" level="INFO">${both_genders} = BTSX</msg>
-<status status="PASS" starttime="20231205 19:38:01.264" endtime="20231205 19:38:05.176"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${year_key}</var>
-<arg>TimeDim</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231205 19:38:06.730" level="INFO">${year_key} = TimeDim</msg>
-<status status="PASS" starttime="20231205 19:38:05.180" endtime="20231205 19:38:06.730"/>
+<msg timestamp="20231205 21:21:36.628" level="INFO">${both_genders} = BTSX</msg>
+<status status="PASS" starttime="20231205 21:21:36.625" endtime="20231205 21:21:36.628"/>
 </kw>
 <kw name="Filter Table By Column" library="RPA.Tables">
 <arg>${table}</arg>
-<arg>${rate_key}</arg>
+<arg>${RATE_KEY}</arg>
 <arg>&lt;</arg>
 <arg>${max_rate}</arg>
 <doc>Remove all rows where column values don't match the
 given condition.</doc>
-<msg timestamp="20231205 19:38:08.885" level="INFO">Filtered -10339 rows</msg>
-<status status="PASS" starttime="20231205 19:38:06.730" endtime="20231205 19:38:08.885"/>
+<msg timestamp="20231205 21:21:37.292" level="INFO">Filtered -10339 rows</msg>
+<status status="PASS" starttime="20231205 21:21:36.629" endtime="20231205 21:21:37.307"/>
 </kw>
 <kw name="Filter Table By Column" library="RPA.Tables">
 <arg>${table}</arg>
-<arg>${gender_key}</arg>
+<arg>${GENDER_KEY}</arg>
 <arg>==</arg>
 <arg>${both_genders}</arg>
 <doc>Remove all rows where column values don't match the
 given condition.</doc>
-<msg timestamp="20231205 19:38:21.561" level="INFO">Filtered -1056 rows</msg>
-<status status="PASS" starttime="20231205 19:38:08.885" endtime="20231205 19:38:21.563"/>
+<msg timestamp="20231205 21:21:37.386" level="INFO">Filtered -1056 rows</msg>
+<status status="PASS" starttime="20231205 21:21:37.307" endtime="20231205 21:21:37.386"/>
 </kw>
 <kw name="Sort Table By Column" library="RPA.Tables">
 <arg>${table}</arg>
-<arg>${year_key}</arg>
+<arg>${YEAR_KEY}</arg>
 <arg>False</arg>
 <doc>Sort a table in-place according to ``column``.</doc>
-<status status="PASS" starttime="20231205 19:38:21.566" endtime="20231205 19:38:22.620"/>
+<status status="PASS" starttime="20231205 21:21:37.386" endtime="20231205 21:21:37.403"/>
 </kw>
 <return>
 <value>${table}</value>
-<status status="PASS" starttime="20231205 19:38:22.622" endtime="20231205 19:38:24.057"/>
+<status status="PASS" starttime="20231205 21:21:37.403" endtime="20231205 21:21:37.403"/>
 </return>
-<status status="PASS" starttime="20231205 19:37:50.009" endtime="20231205 19:38:24.061"/>
+<msg timestamp="20231205 21:21:37.419" level="INFO">${table} = Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</msg>
+<status status="PASS" starttime="20231205 21:21:29.840" endtime="20231205 21:21:37.419"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>Producer Done.</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231205 19:38:27.064" level="INFO">Producer Done.</msg>
-<status status="PASS" starttime="20231205 19:38:24.064" endtime="20231205 19:38:27.065"/>
+<kw name="Get latest data by country">
+<var>${latest_data_by_country}</var>
+<arg>${table}</arg>
+<kw name="Group Table By Column" library="RPA.Tables">
+<var>${table}</var>
+<arg>${table}</arg>
+<arg>${COUNTRY_KEY}</arg>
+<doc>Group a table by ``column`` and return a list of grouped Tables.</doc>
+<msg timestamp="20231205 21:21:50.317" level="INFO">Found 30 groups</msg>
+<msg timestamp="20231205 21:21:50.325" level="INFO">${table} = [Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Valu...</msg>
+<status status="PASS" starttime="20231205 21:21:41.806" endtime="20231205 21:21:50.325"/>
 </kw>
-<status status="PASS" starttime="20231205 19:37:18.640" endtime="20231205 19:38:27.065"/>
-</test>
-<doc>Inhuman Insurance, Inc. Artificial Intelligence System robot.
-Produces traffic data work items.</doc>
-<status status="PASS" starttime="20231205 19:37:14.904" endtime="20231205 19:38:27.084"/>
-</suite>
-<statistics>
-<total>
-<stat pass="1" fail="0" skip="0">All Tasks</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Producer">Producer</stat>
-</suite>
-</statistics>
-<errors>
-</errors>
-</robot>
+<kw name="Create List" library="BuiltIn">
+<var>${latest_data_by_country}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231205 21:21:53.747" level="INFO">${latest_data_by_country} = []</msg>
+<status status="PASS" starttime="20231205 21:21:50.333" endtime="20231205 21:21:53.747"/>
+</kw>
+<for flavor="IN">
+<var>${group}</var>
+<value>@{table}</value>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:22:18.407" level="INFO">${first_row} = {'Id': 25414305, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'VCT', 'TimeDimType': 'YEAR', 'TimeDim': 2011, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:22:15.811" endtime="20231205 21:22:18.407"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:22:18.407" endtime="20231205 21:24:53.227"/>
+</kw>
+<status status="PASS" starttime="20231205 21:22:13.321" endtime="20231205 21:24:53.227"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:14.969" level="INFO">${first_row} = {'Id': 25396290, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SWError', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': N...</msg>
+<status status="PASS" starttime="20231205 21:25:13.111" endtime="20231205 21:25:14.977"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:14.977" endtime="20231205 21:25:16.855"/>
+</kw>
+<status status="PASS" starttime="20231205 21:24:53.227" endtime="20231205 21:25:16.855"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:19.102" level="INFO">${first_row} = {'Id': 25396263, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SWE', 'TimeDimType': 'YEAR', 'TimeDim': 2018, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:18.668" endtime="20231205 21:25:19.102"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:19.102" endtime="20231205 21:25:19.553"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:16.855" endtime="20231205 21:25:19.553"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:20.452" level="INFO">${first_row} = {'Id': 25395399, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SVN', 'TimeDimType': 'YEAR', 'TimeDim': 2018, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:20.020" endtime="20231205 21:25:20.452"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:20.452" endtime="20231205 21:25:20.885"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:19.553" endtime="20231205 21:25:20.885"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:22.020" level="INFO">${first_row} = {'Id': 25386375, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SGP', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:21.585" endtime="20231205 21:25:22.020"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:22.020" endtime="20231205 21:25:22.436"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:20.885" endtime="20231205 21:25:22.436"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:23.069" level="INFO">${first_row} = {'Id': 25368358, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'NOR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:22.866" endtime="20231205 21:25:23.069"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:23.076" endtime="20231205 21:25:23.486"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:22.436" endtime="20231205 21:25:23.486"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:24.313" level="INFO">${first_row} = {'Id': 25367485, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'NLD', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:23.898" endtime="20231205 21:25:24.313"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:24.318" endtime="20231205 21:25:24.719"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:23.486" endtime="20231205 21:25:24.719"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:25.578" level="INFO">${first_row} = {'Id': 25355795, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'MLT', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:25.131" endtime="20231205 21:25:25.578"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:25.584" endtime="20231205 21:25:25.772"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:24.719" endtime="20231205 21:25:25.772"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:26.418" level="INFO">${first_row} = {'Id': 25352172, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'MDV', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:26.188" endtime="20231205 21:25:26.426"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:26.429" endtime="20231205 21:25:27.553"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:25.784" endtime="20231205 21:25:27.553"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.566" level="INFO">${first_row} = {'Id': 25347667, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'LUX', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.553" endtime="20231205 21:25:27.566"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.574" endtime="20231205 21:25:27.574"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.553" endtime="20231205 21:25:27.574"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.590" level="INFO">${first_row} = {'Id': 25344109, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'LCA', 'TimeDimType': 'YEAR', 'TimeDim': 2008, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.582" endtime="20231205 21:25:27.598"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.598" endtime="20231205 21:25:27.606"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.582" endtime="20231205 21:25:27.606"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.622" level="INFO">${first_row} = {'Id': 25337776, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'KIR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.614" endtime="20231205 21:25:27.622"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.622" endtime="20231205 21:25:27.632"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.606" endtime="20231205 21:25:27.632"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.640" level="INFO">${first_row} = {'Id': 25333279, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'JPN', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.640" endtime="20231205 21:25:27.640"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.648" endtime="20231205 21:25:27.648"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.632" endtime="20231205 21:25:27.656"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.664" level="INFO">${first_row} = {'Id': 25329697, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ISR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.656" endtime="20231205 21:25:27.664"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.672" endtime="20231205 21:25:27.672"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.656" endtime="20231205 21:25:27.680"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.688" level="INFO">${first_row} = {'Id': 25328814, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ISL', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.680" endtime="20231205 21:25:27.694"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.696" endtime="20231205 21:25:27.696"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.680" endtime="20231205 21:25:27.696"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.712" level="INFO">${first_row} = {'Id': 25326084, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'IRL', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.712" endtime="20231205 21:25:27.712"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.712" endtime="20231205 21:25:27.727"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.696" endtime="20231205 21:25:27.727"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.743" level="INFO">${first_row} = {'Id': 25318901, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'GTM', 'TimeDimType': 'YEAR', 'TimeDim': 2006, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.727" endtime="20231205 21:25:27.743"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.743" endtime="20231205 21:25:27.759"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.727" endtime="20231205 21:25:27.759"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.777" level="INFO">${first_row} = {'Id': 25317960, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'GRD', 'TimeDimType': 'YEAR', 'TimeDim': 2014, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.759" endtime="20231205 21:25:27.777"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.777" endtime="20231205 21:25:27.789"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.759" endtime="20231205 21:25:27.789"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.789" level="INFO">${first_row} = {'Id': 25310762, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'GBR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.789" endtime="20231205 21:25:27.789"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.804" endtime="20231205 21:25:27.836"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.789" endtime="20231205 21:25:27.836"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.851" level="INFO">${first_row} = {'Id': 25308972, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'FSM', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.851" endtime="20231205 21:25:27.851"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.851" endtime="20231205 21:25:27.867"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.836" endtime="20231205 21:25:27.870"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.870" level="INFO">${first_row} = {'Id': 25306262, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'FIN', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.870" endtime="20231205 21:25:27.870"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.901" endtime="20231205 21:25:27.917"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.870" endtime="20231205 21:25:27.917"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.917" level="INFO">${first_row} = {'Id': 25304500, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'EST', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.917" endtime="20231205 21:25:27.932"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.932" endtime="20231205 21:25:27.932"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.917" endtime="20231205 21:25:27.932"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.959" level="INFO">${first_row} = {'Id': 25303612, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ESP', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.959" endtime="20231205 21:25:27.959"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.959" endtime="20231205 21:25:27.975"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.932" endtime="20231205 21:25:27.975"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:27.975" level="INFO">${first_row} = {'Id': 25298206, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'DNK', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:27.975" endtime="20231205 21:25:27.990"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:27.990" endtime="20231205 21:25:27.990"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:27.975" endtime="20231205 21:25:27.990"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:28.046" level="INFO">${first_row} = {'Id': 25296399, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'DEU', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:28.037" endtime="20231205 21:25:28.046"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:28.046" endtime="20231205 21:25:28.046"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:28.037" endtime="20231205 21:25:28.046"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:28.077" level="INFO">${first_row} = {'Id': 25294595, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'CYP', 'TimeDimType': 'YEAR', 'TimeDim': 2013, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:28.062" endtime="20231205 21:25:28.077"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:28.077" endtime="20231205 21:25:28.077"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:28.046" endtime="20231205 21:25:28.093"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:28.103" level="INFO">${first_row} = {'Id': 25283809, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'CHE', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:28.093" endtime="20231205 21:25:28.109"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:28.110" endtime="20231205 21:25:28.110"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:28.093" endtime="20231205 21:25:28.110"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:28.131" level="INFO">${first_row} = {'Id': 25264908, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AUT', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:28.126" endtime="20231205 21:25:28.139"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:28.139" endtime="20231205 21:25:28.147"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:28.126" endtime="20231205 21:25:28.147"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:28.156" level="INFO">${first_row} = {'Id': 25263981, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'AUS', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:28.156" endtime="20231205 21:25:28.164"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:28.164" endtime="20231205 21:25:28.164"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:28.147" endtime="20231205 21:25:28.164"/>
+</iter>
+<iter>
+<var name="${group}">Table(columns=['Id', 'IndicatorCode', 'SpatialDimType', 'SpatialDim', 'TimeDimType', 'TimeDim', 'Dim1Type', 'Dim1', 'Dim2Type', 'Dim2', 'Dim3Type', 'Dim3', 'DataSourceDimType', 'DataSourceDim', 'Value...</var>
+<kw name="Pop Table Row" library="RPA.Tables">
+<var>${first_row}</var>
+<arg>${group}</arg>
+<doc>Remove row from table and return it.</doc>
+<msg timestamp="20231205 21:25:28.180" level="INFO">${first_row} = {'Id': 25263077, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ATG', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</msg>
+<status status="PASS" starttime="20231205 21:25:28.164" endtime="20231205 21:25:28.180"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${latest_data_by_country}</arg>
+<arg>${first_row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:25:28.185" endtime="20231205 21:25:28.185"/>
+</kw>
+<status status="PASS" starttime="20231205 21:25:28.164" endtime="20231205 21:25:28.193"/>
+</iter>
+<status status="PASS" starttime="20231205 21:21:53.750" endtime="20231205 21:25:28.197"/>
+</for>
+<return>
+<value>${latest_data_by_country}</value>
+<status status="PASS" starttime="20231205 21:25:28.197" endtime="20231205 21:25:28.197"/>
+</return>
+<msg timestamp="20231205 21:25:28.197" level="INFO">${latest_data_by_country} = [{'Id': 25414305, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'VCT', 'TimeDimType': 'YEAR', 'TimeDim': 2011, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None...</msg>
+<status status="PASS" starttime="20231205 21:21:37.419" endtime="20231205 21:25:28.197"/>
+</kw>
+<kw name="Create work item payloads">
+<var>${payloads}</var>
+<arg>${latest_data_by_country}</arg>
+<kw name="Create List" library="BuiltIn">
+<var>${payloads}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231205 21:27:05.998" level="INFO">${payloads} = []</msg>
+<status status="PASS" starttime="20231205 21:26:07.211" endtime="20231205 21:27:06.002"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{traffic_data}</value>
+<iter>
+<var name="${row}">{'Id': 25414305, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'VCT', 'TimeDimType': 'YEAR', 'TimeDim': 2011, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:27:22.199" level="INFO">${payload} = {'country': 'VCT', 'year': 2011, 'rate': 3.69293}</msg>
+<status status="PASS" starttime="20231205 21:27:20.555" endtime="20231205 21:27:22.199"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:27:22.199" endtime="20231205 21:28:14.926"/>
+</kw>
+<status status="PASS" starttime="20231205 21:27:16.890" endtime="20231205 21:28:14.926"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25396290, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SWError', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': N...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.391" level="INFO">${payload} = {'country': 'SWError', 'year': 2019, 'rate': 3.13947}</msg>
+<status status="PASS" starttime="20231205 21:28:17.387" endtime="20231205 21:28:17.391"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.406" endtime="20231205 21:28:17.407"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:14.926" endtime="20231205 21:28:17.407"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25396263, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SWE', 'TimeDimType': 'YEAR', 'TimeDim': 2018, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.423" level="INFO">${payload} = {'country': 'SWE', 'year': 2018, 'rate': 3.61718}</msg>
+<status status="PASS" starttime="20231205 21:28:17.415" endtime="20231205 21:28:17.431"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.431" endtime="20231205 21:28:17.438"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.415" endtime="20231205 21:28:17.438"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25395399, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SVN', 'TimeDimType': 'YEAR', 'TimeDim': 2018, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.458" level="INFO">${payload} = {'country': 'SVN', 'year': 2018, 'rate': 4.52394}</msg>
+<status status="PASS" starttime="20231205 21:28:17.446" endtime="20231205 21:28:17.458"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.466" endtime="20231205 21:28:17.466"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.446" endtime="20231205 21:28:17.474"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25386375, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'SGP', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.488" level="INFO">${payload} = {'country': 'SGP', 'year': 2019, 'rate': 2.08609}</msg>
+<status status="PASS" starttime="20231205 21:28:17.477" endtime="20231205 21:28:17.496"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.496" endtime="20231205 21:28:17.496"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.477" endtime="20231205 21:28:17.504"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25368358, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'NOR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.521" level="INFO">${payload} = {'country': 'NOR', 'year': 2019, 'rate': 2.12302}</msg>
+<status status="PASS" starttime="20231205 21:28:17.513" endtime="20231205 21:28:17.521"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.521" endtime="20231205 21:28:17.535"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.504" endtime="20231205 21:28:17.535"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25367485, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'NLD', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.546" level="INFO">${payload} = {'country': 'NLD', 'year': 2019, 'rate': 3.98313}</msg>
+<status status="PASS" starttime="20231205 21:28:17.538" endtime="20231205 21:28:17.546"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.554" endtime="20231205 21:28:17.554"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.538" endtime="20231205 21:28:17.562"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25355795, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'MLT', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.574" level="INFO">${payload} = {'country': 'MLT', 'year': 2019, 'rate': 4.10715}</msg>
+<status status="PASS" starttime="20231205 21:28:17.570" endtime="20231205 21:28:17.574"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.574" endtime="20231205 21:28:17.590"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.562" endtime="20231205 21:28:17.590"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25352172, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'MDV', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.606" level="INFO">${payload} = {'country': 'MDV', 'year': 2019, 'rate': 1.6277}</msg>
+<status status="PASS" starttime="20231205 21:28:17.590" endtime="20231205 21:28:17.606"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.606" endtime="20231205 21:28:17.606"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.590" endtime="20231205 21:28:17.621"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25347667, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'LUX', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.633" level="INFO">${payload} = {'country': 'LUX', 'year': 2019, 'rate': 4.07499}</msg>
+<status status="PASS" starttime="20231205 21:28:17.624" endtime="20231205 21:28:17.633"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.633" endtime="20231205 21:28:17.641"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.624" endtime="20231205 21:28:17.641"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25344109, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'LCA', 'TimeDimType': 'YEAR', 'TimeDim': 2008, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.657" level="INFO">${payload} = {'country': 'LCA', 'year': 2008, 'rate': 3.52918}</msg>
+<status status="PASS" starttime="20231205 21:28:17.649" endtime="20231205 21:28:17.657"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.657" endtime="20231205 21:28:17.664"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.649" endtime="20231205 21:28:17.664"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25337776, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'KIR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.679" level="INFO">${payload} = {'country': 'KIR', 'year': 2019, 'rate': 1.92481}</msg>
+<status status="PASS" starttime="20231205 21:28:17.664" endtime="20231205 21:28:17.679"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.679" endtime="20231205 21:28:17.695"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.664" endtime="20231205 21:28:17.696"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25333279, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'JPN', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.711" level="INFO">${payload} = {'country': 'JPN', 'year': 2019, 'rate': 3.59908}</msg>
+<status status="PASS" starttime="20231205 21:28:17.696" endtime="20231205 21:28:17.711"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.711" endtime="20231205 21:28:17.711"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.696" endtime="20231205 21:28:17.711"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25329697, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ISR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.727" level="INFO">${payload} = {'country': 'ISR', 'year': 2019, 'rate': 3.90874}</msg>
+<status status="PASS" starttime="20231205 21:28:17.711" endtime="20231205 21:28:17.727"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.727" endtime="20231205 21:28:17.727"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.711" endtime="20231205 21:28:17.727"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25328814, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ISL', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.759" level="INFO">${payload} = {'country': 'ISL', 'year': 2019, 'rate': 2.04915}</msg>
+<status status="PASS" starttime="20231205 21:28:17.743" endtime="20231205 21:28:17.759"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.759" endtime="20231205 21:28:17.759"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.743" endtime="20231205 21:28:17.759"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25326084, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'IRL', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.775" level="INFO">${payload} = {'country': 'IRL', 'year': 2019, 'rate': 3.13364}</msg>
+<status status="PASS" starttime="20231205 21:28:17.775" endtime="20231205 21:28:17.775"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.790" endtime="20231205 21:28:17.790"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.759" endtime="20231205 21:28:17.790"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25318901, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'GTM', 'TimeDimType': 'YEAR', 'TimeDim': 2006, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.808" level="INFO">${payload} = {'country': 'GTM', 'year': 2006, 'rate': 4.61297}</msg>
+<status status="PASS" starttime="20231205 21:28:17.806" endtime="20231205 21:28:17.808"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.808" endtime="20231205 21:28:17.808"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.790" endtime="20231205 21:28:17.808"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25317960, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'GRD', 'TimeDimType': 'YEAR', 'TimeDim': 2014, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.832" level="INFO">${payload} = {'country': 'GRD', 'year': 2014, 'rate': 4.59137}</msg>
+<status status="PASS" starttime="20231205 21:28:17.824" endtime="20231205 21:28:17.840"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.840" endtime="20231205 21:28:17.848"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.822" endtime="20231205 21:28:17.848"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25310762, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'GBR', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.856" level="INFO">${payload} = {'country': 'GBR', 'year': 2019, 'rate': 3.21187}</msg>
+<status status="PASS" starttime="20231205 21:28:17.856" endtime="20231205 21:28:17.856"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.872" endtime="20231205 21:28:17.872"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.848" endtime="20231205 21:28:17.872"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25308972, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'FSM', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.888" level="INFO">${payload} = {'country': 'FSM', 'year': 2019, 'rate': 0.15972}</msg>
+<status status="PASS" starttime="20231205 21:28:17.872" endtime="20231205 21:28:17.888"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.888" endtime="20231205 21:28:17.888"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.872" endtime="20231205 21:28:17.888"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25306262, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'FIN', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.904" level="INFO">${payload} = {'country': 'FIN', 'year': 2019, 'rate': 3.88637}</msg>
+<status status="PASS" starttime="20231205 21:28:17.888" endtime="20231205 21:28:17.904"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.904" endtime="20231205 21:28:17.904"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.888" endtime="20231205 21:28:17.904"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25304500, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'EST', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 21:28:17.919" level="INFO">${payload} = {'country': 'EST', 'year': 2019, 'rate': 4.46408}</msg>
+<status status="PASS" starttime="20231205 21:28:17.919" endtime="20231205 21:28:17.937"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${payloads}</arg>
+<arg>${payload}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 21:28:17.938" endtime="20231205 21:28:17.938"/>
+</kw>
+<status status="PASS" starttime="20231205 21:28:17.919" endtime="20231205 21:28:17.938"/>
+</iter>
+<iter>
+<var name="${row}">{'Id': 25303612, 'IndicatorCode': 'RS_198', 'SpatialDimType': 'COUNTRY', 'SpatialDim': 'ESP', 'TimeDimType': 'YEAR', 'TimeDim': 2019, 'Dim1Type': 'SEX', 'Dim1': 'BTSX', 'Dim2Type': None, 'Dim2': None,...</var>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>country=${row}[${COUNTRY_KEY}]</arg>
+<arg>year=${row}[${YEAR_KEY}]</arg>
+<arg>rate=${row}[${RATE_KEY}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
