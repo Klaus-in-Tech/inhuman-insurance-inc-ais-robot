@@ -6,7 +6,7 @@ Library             RPA.HTTP
 Library             Collections
 Library             RPA.Tables
 Library             RPA.JSON
-Library             RPA.Robocorp.WorkItems
+Resource            shared.robot
 
 
 *** Variables ***
@@ -81,5 +81,5 @@ Save work item payloads
 
 Save work item payload
     [Arguments]    ${payload}
-    ${variables}=    Create Dictionary    traffic_data=${payload}
+    ${variables}=    Create Dictionary    ${WORK_ITEM_NAME}=${payload}
     Create Output Work Item    variables=${variables}    save=True
