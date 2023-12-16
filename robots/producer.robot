@@ -6,6 +6,8 @@ Library             RPA.HTTP
 Library             Collections
 Library             RPA.Tables
 Library             RPA.JSON
+Library             RPA.Robocorp.WorkItems
+
 
 *** Variables ***
 ${TRAFFIC_JSON_FILE_PATH}=      ${OUTPUT_DIR}${/}traffic.json
@@ -18,10 +20,12 @@ ${YEAR_KEY}=                    TimeDim
 
 *** Tasks ***
 Produce traffic data work items
+    Download traffic data
     ${table}=    Load traffic data as table
     ${table}=    Filter and sort traffic data    ${table}
     ${traffic_data}=    Get latest data by country    ${table}
     ${payloads}=    Create work item payloads    ${traffic_data}
+    Save work item payloads    ${payloads}
     Log    Producer Done.
 
 *** Keywords ***
@@ -68,3 +72,14 @@ Create work item payloads
         Append To List    ${payloads}    ${payload}
     END
     RETURN    ${payloads}
+
+Save work item payloads
+    [Arguments]    ${payloads}
+    FOR    ${payload}    IN    @{payloads}
+        Save work item payload    ${payload}
+    END
+
+Save work item payload
+    [Arguments]    ${payload}
+    ${variables}=    Create Dictionary    traffic_data=${payload}
+    Create Output Work Item    variables=${variables}    save=True
