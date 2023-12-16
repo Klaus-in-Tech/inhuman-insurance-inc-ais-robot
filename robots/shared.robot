@@ -2,7 +2,7 @@
 Documentation       Inhuman Insurance, Inc. Artificial Intelligence System robot.
 ...                 Shared settings and code.
 
+Library             RPA.Robocorp.WorkItems
 
-*** Tasks ***
-Minimal task
-    Log To Console  Am shared Done.
+*** Variables ***
+${WORK_ITEM_NAME}=      traffic_data
