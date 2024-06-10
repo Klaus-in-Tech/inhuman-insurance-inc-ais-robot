@@ -1,14 +1,14 @@
-# Template: Robot Framework - Minimal
+# Automation Certification Level III: Work data management - Python RPA Framework
 
-This is the simplest template to start from.
+### Documentation for the use case:<br>
 
-- Get started from a simple task template in `tasks.robot`.
-  - Uses [Robot Framework](https://robocorp.com/docs/languages-and-frameworks/robot-framework/basics) syntax.
-- You can configure your robot `robot.yaml`.
-- You can configure dependencies in `conda.yaml`.
+👉 https://robocorp.com/docs/courses/work-data-management
 
-## Learning materials
+## Author
 
-- [Robocorp Developer Training Courses](https://robocorp.com/docs/courses)
-- [Documentation links on Robot Framework](https://robocorp.com/docs/languages-and-frameworks/robot-framework)
-- [Example bots in Robocorp Portal](https://robocorp.com/portal)
+- [Github](https://github.com/Klaus-in-Tech)
+- [LinkedIn](https://www.linkedin.com/in/kakoozaallanklaus/)
+- [Twitter](https://twitter.com/Klaus_in_Tech)
+- [YouTube](https://www.youtube.com/channel/UCbChxT4XT0MUhySZvTBZ0Mg)
+
+### Feel free to connect with me on my socials as listed above. 😊
