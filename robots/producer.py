@@ -1,5 +1,5 @@
 from robocorp.tasks import task
-from robocorp import workitems
+from RPA.Robocorp.WorkItems import WorkItems
 from RPA.HTTP import HTTP
 from RPA.JSON import JSON
 from RPA.Tables import Tables
@@ -9,7 +9,6 @@ json = JSON()
 table = Tables()
 TRAFFIC_JSON_FILE_PATH = "output/traffic.json"
 
-# JSON data keys
 COUNTRY_KEY = "SpatialDim"
 YEAR_KEY = "TimeDim"
 RATE_KEY = "NumericValue"
@@ -34,8 +33,6 @@ def produce_traffic_data():
     filtered_data = get_latest_data_by_country(filtered_data)
     payloads = create_work_item_payloads(filtered_data)
     save_work_item_payloads(payloads)
-
-
 
 def load_traffic_data_as_table():
     json_data = json.load_json_from_file("output/traffic.json")
@@ -73,6 +70,8 @@ def create_work_item_payloads(traffic_data):
     return payloads
 
 def save_work_item_payloads(payloads):
+    wi = WorkItems()
+    wi.get_input_work_item()
     for payload in payloads:
         variables = dict(traffic_data=payload)
-        workitems.outputs.create(variables)
+        wi.create_output_work_item(variables=variables, save=True)

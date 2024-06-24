@@ -1,12 +1,16 @@
 from robocorp.tasks import task
+import logging
 from RPA.Robocorp.WorkItems import WorkItems
 from RPA.HTTP import HTTP
 from RPA.JSON import JSON
 from RPA.Tables import Tables
 
+
 http = HTTP()
 json = JSON()
 table = Tables()
+workitems = WorkItems()
+
 TRAFFIC_JSON_FILE_PATH = "output/traffic.json"
 
 COUNTRY_KEY = "SpatialDim"
@@ -40,6 +44,13 @@ def consume_traffic_data():
         Consumes traffic data work items.
     """
     print("consume")
+    process_traffic_data()
+
+def process_traffic_data():
+    payload = workitems.get_work_item_variables()
+    workitems.for_each_input_work_item(payload)
+    logging.info("Payload captured...")
+
 
 def load_traffic_data_as_table():
     json_data = json.load_json_from_file("output/traffic.json")
@@ -77,8 +88,7 @@ def create_work_item_payloads(traffic_data):
     return payloads
 
 def save_work_item_payloads(payloads):
-    wi = WorkItems()
-    wi.get_input_work_item()
+    workitems.get_input_work_item()
     for payload in payloads:
         variables = dict(traffic_data=payload)
-        wi.create_output_work_item(variables=variables, save=True)
+        workitems.create_output_work_item(variables=variables, save=True)
